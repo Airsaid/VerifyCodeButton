@@ -20,17 +20,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         mBtnCode = (VerifyCodeButton) findViewById(R.id.btn_code);
         mEdtPhone = (EditText) findViewById(R.id.edt_phone);
-        mBtnCode.setOnClickListener(new VerifyCodeButton.OnClickListener() {
+        mBtnCode.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onClick(View v) {
-                // 校验手机号是否输入正确，return true 时表示可以开始倒计时操作。
+            public void onClick(View view) {
+                // 校验手机号是否输入正确
                 String phone = mEdtPhone.getText().toString();
                 if(!TextUtils.isEmpty(phone)){
                     Toast.makeText(MainActivity.this, "执行发送验证码操作", Toast.LENGTH_SHORT).show();
-                    return true;
+                    // 开始倒计时
+                    mBtnCode.start();
                 }else{
                     Toast.makeText(MainActivity.this, "请输入手机号", Toast.LENGTH_SHORT).show();
-                    return false;
                 }
             }
         });

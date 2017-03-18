@@ -17,6 +17,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
+        android:inputType="phone"
         android:hint="请输入手机号"/>
 
     <com.github.airsaid.verifycodebutton.widget.VerifyCodeButton

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.res.TypedArray;
 import android.os.CountDownTimer;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.Button;
 
 import com.github.airsaid.verifycodebutton.R;
@@ -15,7 +14,7 @@ import com.github.airsaid.verifycodebutton.R;
  * @date 2017/3/18
  * @desc 自定义验证码 Button
  */
-public class VerifyCodeButton extends Button implements View.OnClickListener {
+public class VerifyCodeButton extends Button {
 
     private final Context mContext;
 
@@ -50,18 +49,8 @@ public class VerifyCodeButton extends Button implements View.OnClickListener {
     }
 
     private void init() {
-        setOnClickListener(this);
         setBackgroundResource(mBackground);
         mTimeCount = new TimeCount(mCountdownTime * 1000, 1000);
-    }
-
-    @Override
-    public void onClick(View view) {
-        if(mListener != null){
-            if(mListener.onClick(this)){
-                mTimeCount.start();
-            }
-        }
     }
 
     class TimeCount extends CountDownTimer {
@@ -85,14 +74,11 @@ public class VerifyCodeButton extends Button implements View.OnClickListener {
         }
     }
 
-    private OnClickListener mListener;
-
-    public interface OnClickListener{
-        boolean onClick(View v);
-    }
-
-    public void setOnClickListener(OnClickListener listener){
-        this.mListener = listener;
+    /**
+     * 开始倒计时
+     */
+    public void start(){
+        mTimeCount.start();
     }
 
 }
