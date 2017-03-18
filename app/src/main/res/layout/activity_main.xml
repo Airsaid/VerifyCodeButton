@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.github.airsaid.verifycodebutton.MainActivity">
+
+    <EditText
+        android:id="@+id/edt_phone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="请输入手机号"/>
+
+    <com.github.airsaid.verifycodebutton.widget.VerifyCodeButton
+        android:id="@+id/btn_code"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:background="@drawable/bg_button_code"
+        android:gravity="center"
+        android:text="获取验证码"
+        android:textColor="#FFFFFF"
+        app:vcb_afterCountdownText="重新获取"
+        app:vcb_clickAfterBackground="@drawable/bg_button_code_click_after"
+        app:vcb_countdownTime="6"/>
+</LinearLayout>
